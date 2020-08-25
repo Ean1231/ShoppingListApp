@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Shopping List App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+     <ion-row>
+       <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>New Item</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+           <ion-item>
+             <ion-label position="floating">Item name</ion-label>
+             <ion-input type="text"  name="item" [(ngModel)]="item"></ion-input>
+           </ion-item>
+           <ion-item>
+             <ion-label position="floating">Item Amount</ion-label>
+             <ion-input type="text" name="amount" [(ngModel)]="amount"></ion-input>
+           </ion-item>
+           <div >
+           <ion-button (click)="addItem()" *ngIf="showAddbtn"><ion-icon name="add" slot="start" id="btn-add"  type="submit"></ion-icon>Add Item</ion-button>
+           <ion-button (click)="update()" *ngIf="showUpdatebtn"><ion-icon name="add" slot="update" ></ion-icon>update Item</ion-button>
+
+          </div>
+          </ion-card-content>
+        </ion-card>
+        <table style="width: 70%; ">
+          <thead>
+          <tr style="border: 1px solid blue; ">
+            <th >item name</th>
+            <th>item price</th>
+            <th>Action</th>
+            
+            </tr>
+          </thead>
+        <tbody>
+            <tr *ngFor="let items of shoppingList; let i=indext">
+            <td>{{ items.item }}</td>
+            <td>{{ items.amount }}</td>
+            <td><button style="width: 70px; height: 30px; background-color:  #eb445a;" onload="false" class="danger" (click)="delete(i)" >delete</button> <button style="background-color:  #3dc2ff; width: 70px; height: 30px; margin-left: 15px;" class="danger" (click)="edit(i)" onload="false">update</button></td>
+          </tr>
+          </tbody>
+        </table>
+       </ion-col>
+     </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
