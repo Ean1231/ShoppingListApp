@@ -17,6 +17,9 @@ export class HomePage {
   addItem(){
     this.shoppingList.push(new ShopList(this.item, this.amount));
     console.log(this.shoppingList);
+    this.item = "";
+    this.item = "";
+
 }
 delete(i){
   this.shoppingList.splice(i, 1) ;   
